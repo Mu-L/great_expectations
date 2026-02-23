@@ -234,7 +234,8 @@ module.exports = {
       link: { type: 'doc', id: 'cloud/integrations/integrations_lp' },
       items: [
         'cloud/integrations/integrate_atlan',
-        'cloud/integrations/integrate_airflow'
+        'cloud/integrations/integrate_airflow',
+        'cloud/integrations/integrate_slack'
       ]
     },
     {
