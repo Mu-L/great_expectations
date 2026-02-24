@@ -218,7 +218,7 @@ module.exports = {
       label: 'Respond to results',
       link: { type: 'doc', id: 'cloud/alerts/alerts_lp' },
       items: [
-        { type: 'doc', id: 'cloud/alerts/manage_email_alerts' },
+        { type: 'doc', id: 'cloud/alerts/alert_about_failures' },
         { type: 'doc', id: 'cloud/alerts/trigger_actions' },
         { type: 'doc', id: 'cloud/alerts/custom_actions' }
       ]
