@@ -4,33 +4,21 @@ title: 'Integrate GX Cloud with Slack'
 description: Connect your GX Cloud workspace to Slack so you can configure alerts that @mention stakeholders or yourself in Slack.
 ---
 
-With GX Cloud [alerts](/cloud/alerts/manage_email_alerts/), you can notify [Slack](https://slack.com/) channels about Expectation failures. Connect your GX Cloud workspace to Slack to enable the following:
+With GX Cloud [alerts](/cloud/alerts/manage_email_alerts.md), you can notify [Slack](https://slack.com/) channels about Expectation failures. Connect your GX Cloud workspace to Slack to enable the following:
 
 - **Channel selection.** Your team will be able to use a dropdown in the alert configuration form to select the target channel. 
 - **At-mentions to highlight notifications for stakeholders or yourself.** Your team will be able to configure @mentions to include in the notification message in Slack to help bring the notification to the attention of key collaborators and manage noise for other channel members.
 
 Keep the following in mind when integrating Slack :
 
-- The integration is configured at the [workspace](/cloud/access/manage_access#workspaces) level. A GX Cloud workspace can connect to only one Slack workspace. Each different workspace in a GX Cloud organization can connect to a different Slack workspace, the same Slack workspace as another GX Cloud workspace, or no Slack workspace.
-- You must have [Workspace Editor permissions](/cloud/access/manage_access#roles-and-permissions) or greater to manage the integration.
+- The integration is configured at the [workspace](/cloud/access/manage_access.md#workspaces) level. A GX Cloud workspace can connect to only one Slack workspace. Each different workspace in a GX Cloud organization can connect to a different Slack workspace, the same Slack workspace as another GX Cloud workspace, or no Slack workspace.
+- You must have [Workspace Editor permissions](/cloud/access/manage_access.md#roles-and-permissions) or greater to manage the integration.
 
 ## Connect to Slack
 
 1. In GX Cloud, select the relevant **Workspace** and then click **Integrations**.
 2. Locate the **Slack** integration and click **Connect**.
 3. Follow the prompts to sign in to Slack and **Allow** the connection.
-
-
-## Resolve Slack integration errors
-
-Your Slack integration may enter an **Error** state if, for example, a channel you were targeting with alerts is archived or deleted in Slack. When the integration encounters an error, no Slack notifications will be sent for any alert configuration on any Data Asset until the error is resolved and the integration is reconnected. To resolve the error and reconnect, do the following: 
-
-1. In GX Cloud, select the relevant **Workspace** and then click **Integrations**.
-2. Locate the **Slack** integration and click <img src="/img/pencil.png" alt="pencil icon" width="20" height="20"/>  **Edit connection**.
-3. Find the error message that details what triggered the error.
-4. Follow the error message guidance to update your alert configuration to resolve the error.
-5. Go back into edit mode for the Slack integration and click **Reconnect**.
-4. Follow the prompts to sign in to Slack and **Allow** the connection.
 
 ## Reconnect to Slack
 
@@ -41,10 +29,10 @@ Your Slack integration may become **Disconnected** if, for example, the GX Cloud
 3. Click **Reconnect**.
 4. Follow the prompts to sign in to Slack and **Allow** the connection.
 
-## Delete a Slack connection
+## Remove your Slack integration
 
 1. In GX Cloud, select the relevant **Workspace** and then click **Integrations**.
 2. Locate the **Slack** integration and click  <img src="/img/pencil.png" alt="pencil icon" width="20" height="20"/> **Edit connection**.
 3. Click <img src="/img/trash.png" alt="trash icon" width="20" height="20"/> **Remove**.
-4. Note that deleting the connection may impact existing alert configurations. If any alerts are configured with Slack recipients, the channel and @mention configuration details will be deleted. If an alert is also configured with email recipients, that portion of the alert’s configuration will be left as-is, and notifications will continue to be sent to those email addresses. Click **Remove** to confirm you understand the impact to existing alert configurations and finalize deleting the connection.
+4. Note that removing the integration may impact existing alert configurations. If any alerts are configured with Slack recipients, the channel and @mention configuration details will be deleted. If an alert is also configured with email recipients, that portion of the alert’s configuration will be left as-is, and notifications will continue to be sent to those email addresses. Click **Remove** to confirm you understand the impact to existing alert configurations and finalize deleting the connection.
 
