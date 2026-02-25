@@ -157,7 +157,7 @@ Environment variables securely store your GX Cloud and Microsoft SQL Server cred
        - `client_id`: The application ID for your new or existing app registration.
        - `client_secret`: A new secret key from your app registration.
 
-   Replace the variable values with your own and run the following Python code. In this example, the strings "${SQL_SERVER_USER}" and "${SQL_SERVER_PASSWORD}" will be replaced with the values of the environment variables you set earlier:
+   Replace the variable values with your own and run the following Python code. In this example, the strings `"${SQL_SERVER_USER}"` and `"${SQL_SERVER_PASSWORD}"` will be replaced with the values of the environment variables you set earlier:
 
    ```python title="Python" name="docs/docusaurus/docs/cloud/connect/connect_sqlserver.py - define source" 
    ```
