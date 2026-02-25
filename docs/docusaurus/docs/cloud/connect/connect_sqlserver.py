@@ -15,15 +15,15 @@ context = gx.get_context(mode="cloud")
 
 # Add a SQL Server Data Source
 # <snippet name="docs/docusaurus/docs/cloud/connect/connect_sqlserver.py - define source">
-datasource_name = "Self-hosted SQL Server",
-host = "sql-server.example.com",
-database = "production",
-schema = "sales",
-port = 1433,
-encrypt = "Mandatory",
-authentication = "SQL Server",
-username = "${SQL_SERVER_USER}",
-password = "${SQL_SERVER_PASSWORD}",
+datasource_name = ("Self-hosted SQL Server",)
+host = ("sql-server.example.com",)
+database = ("production",)
+schema = ("sales",)
+port = (1433,)
+encrypt = ("Mandatory",)
+authentication = ("SQL Server",)
+username = ("${SQL_SERVER_USER}",)
+password = ("${SQL_SERVER_PASSWORD}",)
 # </snippet>
 
 # <snippet name="docs/docusaurus/docs/cloud/connect/connect_sqlserver.py - add source">
