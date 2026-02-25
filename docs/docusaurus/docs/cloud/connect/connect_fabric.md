@@ -181,7 +181,7 @@ Environment variables securely store your GX Cloud and Microsoft Fabric credenti
 
    - `name`: A name by which you can reference the Data Asset in the future. This should be unique within the Data Source.
    - `table_name`: The name of the SQL table that the Table Data Asset will retrieve records from.
-   </br>
+   
    
    ```python title="Python" name="docs/docusaurus/docs/cloud/connect/connect_fabric.py - define table data asset" 
    ```
@@ -203,7 +203,7 @@ Environment variables securely store your GX Cloud and Microsoft Fabric credenti
 
    - `name`: A name by which you can reference the Data Asset in the future. This should be unique within the Data Source.
    - `query`: The SQL query that the Data Asset will retrieve records from.
-   </br>
+   
    
    ```python title="Python" name="docs/docusaurus/docs/cloud/connect/connect_fabric.py - define query data asset" 
    ```
