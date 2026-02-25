@@ -15,15 +15,15 @@ context = gx.get_context(mode="cloud")
 
 # Add a SQL Server Data Source
 # <snippet name="docs/docusaurus/docs/cloud/connect/connect_sqlserver.py - define source">
-datasource_name="Self-hosted SQL Server",
-host="sql-server.example.com",
-database="production",
-schema="sales",
-port=1433,
-encrypt="Mandatory",
-authentication="SQL Server",
-username="${SQL_SERVER_USER}",
-password="${SQL_SERVER_PASSWORD}",
+datasource_name = ("Self-hosted SQL Server",)
+host = ("sql-server.example.com",)
+database = ("production",)
+schema = ("sales",)
+port = (1433,)
+encrypt = ("Mandatory",)
+authentication = ("SQL Server",)
+username = ("${SQL_SERVER_USER}",)
+password = ("${SQL_SERVER_PASSWORD}",)
 # </snippet>
 
 # <snippet name="docs/docusaurus/docs/cloud/connect/connect_sqlserver.py - add source">
@@ -48,14 +48,14 @@ table_name = "my_table"
 
 # <snippet name="docs/docusaurus/docs/cloud/connect/connect_sqlserver.py - add table data asset">
 table_data_asset = data_source.add_table_asset(
-   table_name=table_name, name=data_asset_name
+    table_name=table_name, name=data_asset_name
 )
 # </snippet>
 
 # Add a Query Data Asset
 # <snippet name="docs/docusaurus/docs/cloud/connect/connect_sqlserver.py - define query data asset">
 data_asset_name = "my_query_asset"
-query= "SELECT * from my_table WHERE column1 = 'value' AND column2 > 20"
+query = "SELECT * from my_table WHERE column1 = 'value' AND column2 > 20"
 # </snippet>
 
 # Hide this
@@ -63,9 +63,7 @@ data_source = context.data_sources.get(datasource_name)
 # Hide this
 
 # <snippet name="docs/docusaurus/docs/cloud/connect/connect_sqlserver.py - add query data asset">
-query_data_asset = data_source.add_query_asset(
-   query=query, name=data_asset_name
-)
+query_data_asset = data_source.add_query_asset(query=query, name=data_asset_name)
 # </snippet>
 
 # </snippet>
