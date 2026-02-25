@@ -160,7 +160,7 @@ Environment variables securely store your GX Cloud and Microsoft Fabric credenti
 4. Decide whether you want to validate the records in a single table or the records returned by a SQL query.
 
    - To validate the records in a single table, you will create a Table Data Asset.
-   - To validate the records returned by a SQL query, you will create a Query Data Asset. Note that [Query Data Assets have some limitations](/cloud/data_assets/manage_data_assets/#data-asset-options-for-sql-data-sources) compared to Table Data Assets.
+   - To validate the records returned by a SQL query, you will create a Query Data Asset. Note that [Query Data Assets have some limitations](/cloud/data_assets/manage_data_assets.md#data-asset-options-for-sql-data-sources) compared to Table Data Assets.
 <br />
 
 <Tabs
