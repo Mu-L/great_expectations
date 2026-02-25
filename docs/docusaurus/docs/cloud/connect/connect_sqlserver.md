@@ -11,7 +11,7 @@ import Tabs from '@theme/Tabs';
 To connect GX Cloud to data stored in SQL Server, you can use the GX Cloud UI or the GX Cloud API.
 
 <Tabs 
-   queryString="expectations-interface"
+   queryString="interface"
    defaultValue="ui"
    values={[
       {value: 'ui', label: 'UI'},
@@ -171,6 +171,8 @@ Environment variables securely store your GX Cloud and Microsoft SQL Server cred
 
    - To validate the records in a single table, you will create a Table Data Asset.
    - To validate the records returned by a SQL query, you will create a Query Data Asset. Note that [Query Data Assets have some limitations](/cloud/data_assets/manage_data_assets/#data-asset-options-for-sql-data-sources) compared to Table Data Assets.
+
+
 
 <Tabs 
    queryString="asset"
