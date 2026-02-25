@@ -15,15 +15,15 @@ context = gx.get_context(mode="cloud")
 
 # Add a Fabric Data Source
 # <snippet name="docs/docusaurus/docs/cloud/connect/connect_fabric.py - define source">
-datasource_name = ("Fabric",)
-host = ("myworkspace.datawarehouse.fabric.microsoft.com",)
-database = ("production",)
-schema = ("sales",)
-port = (1433,)
-encrypt = ("Mandatory",)
-tenant_id = ("${ENTRA_ID_TENANT}",)
-client_id = ("${ENTRA_ID_CLIENT_ID}",)
-client_secret = ("${ENTRA_ID_CLIENT_SECRET}",)
+datasource_name = "Fabric",
+host = "myworkspace.datawarehouse.fabric.microsoft.com",
+database = "production",
+schema = "sales",
+port = 1433,
+encrypt = "Mandatory",
+tenant_id = "${ENTRA_ID_TENANT}",
+client_id = "${ENTRA_ID_CLIENT_ID}",
+client_secret = "${ENTRA_ID_CLIENT_SECRET}",
 # </snippet>
 
 # <snippet name="docs/docusaurus/docs/cloud/connect/connect_fabric.py - add source">

@@ -64,6 +64,7 @@ To connect GX Cloud to data stored in Fabric, you can use the GX Cloud UI or the
 - A [GX Cloud account](https://greatexpectations.io/cloud) with [Workspace Editor permissions](/cloud/access/manage_access.md#roles-and-permissions) or greater.
 - A Microsoft Fabric database, schema, and table or view.
 - [Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-create-new-tenant) credentials that authorize read access to Microsoft Fabric.
+- [Python](https://www.python.org/downloads/) version 3.10 to 3.13.
 - Recommended. A [Python virtual environment](https://docs.python.org/3/library/venv.html).
 
 ## Install GX Cloud 
@@ -181,11 +182,12 @@ Environment variables securely store your GX Cloud and Microsoft Fabric credenti
    - `name`: A name by which you can reference the Data Asset in the future. This should be unique within the Data Source.
    - `table_name`: The name of the SQL table that the Table Data Asset will retrieve records from.
 
+
    ```python title="Python" name="docs/docusaurus/docs/cloud/connect/connect_fabric.py - define table data asset" 
    ```
 
  6. Add the Data Asset to your Data Source. A new Data Asset is created and added to a Data Source simultaneously.
-
+ 
    ```python title="Python" name="docs/docusaurus/docs/cloud/connect/connect_fabric.py - add table data asset" 
    ```
 
@@ -199,6 +201,7 @@ Environment variables securely store your GX Cloud and Microsoft Fabric credenti
 
    - `name`: A name by which you can reference the Data Asset in the future. This should be unique within the Data Source.
    - `query`: The SQL query that the Data Asset will retrieve records from.
+
 
    ```python title="Python" name="docs/docusaurus/docs/cloud/connect/connect_fabric.py - define query data asset" 
    ```
