@@ -228,6 +228,8 @@ Environment variables securely store your GX Cloud and Microsoft SQL Server cred
 
 </Tabs>
 
+</TabItem>
+
 </Tabs>
 
 ## Next steps
