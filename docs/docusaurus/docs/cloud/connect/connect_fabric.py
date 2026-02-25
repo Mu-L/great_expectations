@@ -34,9 +34,9 @@ data_source = context.data_sources.add_fabric(
     schema=schema,
     port=port,
     encrypt=encrypt,
-    tenant_id = tenant_id,
-    client_id = client_id,
-    client_secret = client_secret
+    tenant_id=tenant_id,
+    client_id=client_id,
+    client_secret=client_secret,
 )
 # </snippet>
 
