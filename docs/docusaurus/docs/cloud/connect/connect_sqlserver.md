@@ -4,7 +4,7 @@ title: 'Connect GX Cloud to Microsoft SQL Server'
 description: Connect GX Cloud to a Microsoft SQL Server Data Source.
 hide_table_of_contents: true
 ---
-
+   
 import TabItem from '@theme/TabItem';
 import Tabs from '@theme/Tabs';
 
@@ -14,8 +14,8 @@ To connect GX Cloud to data stored in SQL Server, you can use the GX Cloud UI or
    queryString="interface"
    defaultValue="ui"
    values={[
-      {value: 'ui', label: 'UI'},
-      {value: 'api', label: 'API'}
+     {value: 'ui', label: 'UI'},
+     {value: 'api', label: 'API'}
    ]}
 >
 
@@ -38,21 +38,21 @@ To connect GX Cloud to data stored in SQL Server, you can use the GX Cloud UI or
    - **Schema**: Enter the name of the SQL Server schema where the data you want to validate is stored.
    - **Port**:  Enter the port configured for your SQL Server instance, typically `1433`.
    - **Encrypt**: Select a TLS encryption protocol:
-      - **Optional**: Establish an encrypted connection if your SQL Server instance is configured to force encryption. Otherwise establish an unencrypted connection.
-      - **Mandatory**: Require the connection to be encrypted. Connection will fail if the server does not support TLS.
-      - **Strict**: Require the connection to be encrypted and validate the server certificate. Connection will fail if the server does not support TLS or the certificate is not valid.
+     - **Optional**: Establish an encrypted connection if your SQL Server instance is configured to force encryption. Otherwise establish an unencrypted connection.
+     - **Mandatory**: Require the connection to be encrypted. Connection will fail if the server does not support TLS.
+     - **Strict**: Require the connection to be encrypted and validate the server certificate. Connection will fail if the server does not support TLS or the certificate is not valid.
    - **Driver**: If you are using an [agent-enabled deployment](/cloud/deploy/deploy_gx_agent.md) of GX Cloud, enter the name of the ODBC driver your environment uses to connect to SQL Server. Common values include the following:
-      - `ODBC Driver 18 for SQL Server`
-      - `ODBC Driver 17 for SQL Server` 
-      - `FreeTDS` 
+     - `ODBC Driver 18 for SQL Server`
+     - `ODBC Driver 17 for SQL Server` 
+     - `FreeTDS` 
    - **Authentication method**:  Select **SQL Server** or **Entra ID Service Principal**. Depending on your selection, the following credential fields will be required:
-      - [SQL Server](https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-login?view=sql-server-ver17):
-         - **Username**: Enter the username you use to access SQL Server.
-         - **Password**: Enter the password you use to access SQL Server.
-      - [Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-create-new-tenant):
-         - **Tenant ID**: Enter the unique identifier for your organization's instance of Microsoft Entra ID.
-         - **Client ID**: Enter the application ID for your new or existing app registration.
-         - **Client secret**: Enter a new secret key from your app registration.
+     - [SQL Server](https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-login?view=sql-server-ver17):
+       - **Username**: Enter the username you use to access SQL Server.
+       - **Password**: Enter the password you use to access SQL Server.
+     - [Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-create-new-tenant):
+       - **Tenant ID**: Enter the unique identifier for your organization's instance of Microsoft Entra ID.
+       - **Client ID**: Enter the application ID for your new or existing app registration.
+       - **Client secret**: Enter a new secret key from your app registration.
 
 4. Click **Connect**.
 5. Select one or more tables or views to import as Data Assets.
@@ -101,13 +101,13 @@ Environment variables securely store your GX Cloud and Microsoft SQL Server cred
 
 1. Save your GX Cloud and Microsoft SQL Server credentials as environment variables by entering `export ENV_VAR_NAME=env_var_value` in the terminal or adding the command to your `~/.bashrc` or `~/.zshrc` file. For example:
 
-    ```bash title="Terminal input"
-    export GX_CLOUD_ACCESS_TOKEN=<user_access_token>
-    export GX_CLOUD_ORGANIZATION_ID=<organization_id>
-    export GX_CLOUD_WORKSPACE_ID=<workspace_id>
-    export SQL_SERVER_USER=<username>
-    export SQL_SERVER_PASSWORD=<password>
-    ```
+   ```bash title="Terminal input"
+   export GX_CLOUD_ACCESS_TOKEN=<user_access_token>
+   export GX_CLOUD_ORGANIZATION_ID=<organization_id>
+   export GX_CLOUD_WORKSPACE_ID=<workspace_id>
+   export SQL_SERVER_USER=<username>
+   export SQL_SERVER_PASSWORD=<password>
+   ```
 
 2. Optional. If you created a temporary file to record your credentials, delete it. 
 
@@ -117,8 +117,8 @@ Environment variables securely store your GX Cloud and Microsoft SQL Server cred
    queryString="verbosity"
    defaultValue="instructions"
    values={[
-      {value: 'instructions', label: 'Instructions'},
-      {value: 'sample_code', label: 'Sample code'}
+     {value: 'instructions', label: 'Instructions'},
+     {value: 'sample_code', label: 'Sample code'}
    ]}
 >
 
@@ -141,21 +141,21 @@ Environment variables securely store your GX Cloud and Microsoft SQL Server cred
    - `schema`: The name of the SQL Server schema where the data you want to validate is stored.
    - `port`:  The port configured for your SQL Server instance, typically `1433`.
    - `encrypt`: The TLS encryption protocol to use:
-      - `Optional`: Establish an encrypted connection if your SQL Server instance is configured to force encryption. Otherwise establish an unencrypted connection.
-      - `Mandatory`: Require the connection to be encrypted. Connection will fail if the server does not support TLS.
-      - `Strict`: Require the connection to be encrypted and validate the server certificate. Connection will fail if the server does not support TLS or the certificate is not valid.
+     - `Optional`: Establish an encrypted connection if your SQL Server instance is configured to force encryption. Otherwise establish an unencrypted connection.
+     - `Mandatory`: Require the connection to be encrypted. Connection will fail if the server does not support TLS.
+     - `Strict`: Require the connection to be encrypted and validate the server certificate. Connection will fail if the server does not support TLS or the certificate is not valid.
    - `driver`: If you are using an [agent-enabled deployment](/cloud/deploy/deploy_gx_agent.md) of GX Cloud, enter the name of the ODBC driver your environment uses to connect to SQL Server. Common values include the following:
-      - `ODBC Driver 18 for SQL Server`
-      - `ODBC Driver 17 for SQL Server` 
-      - `FreeTDS` 
+     - `ODBC Driver 18 for SQL Server`
+     - `ODBC Driver 17 for SQL Server` 
+     - `FreeTDS` 
    - `authentication`:  Accepts `SQL Server` or `Entra ID`. Depending on your selection, the following credential parameters will be required:
-      - [SQL Server](https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-login?view=sql-server-ver17):
-         - `username`: The username you use to access SQL Server.
-         - `password`: The password you use to access SQL Server.
-      - [Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-create-new-tenant):
-         - `tenant_id`: The unique identifier for your organization's instance of Microsoft Entra ID.
-         - `client_id`: The application ID for your new or existing app registration.
-         - `client_secret`: A new secret key from your app registration.
+     - [SQL Server](https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-login?view=sql-server-ver17):
+       - `username`: The username you use to access SQL Server.
+       - `password`: The password you use to access SQL Server.
+     - [Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-create-new-tenant):
+       - `tenant_id`: The unique identifier for your organization's instance of Microsoft Entra ID.
+       - `client_id`: The application ID for your new or existing app registration.
+       - `client_secret`: A new secret key from your app registration.
 
    Replace the variable values with your own and run the following Python code. In this example, the strings "${SQL_SERVER_USER}" and "${SQL_SERVER_PASSWORD}" will be replaced with the values of the environment variables you set earlier:
 
@@ -171,15 +171,14 @@ Environment variables securely store your GX Cloud and Microsoft SQL Server cred
 
    - To validate the records in a single table, you will create a Table Data Asset.
    - To validate the records returned by a SQL query, you will create a Query Data Asset. Note that [Query Data Assets have some limitations](/cloud/data_assets/manage_data_assets/#data-asset-options-for-sql-data-sources) compared to Table Data Assets.
+<br />
 
-
-
-<Tabs 
+<Tabs
    queryString="asset"
    defaultValue="table"
    values={[
-      {value: 'table', label: 'Table Data Asset'},
-      {value: 'query', label: 'Query Data Asset'}
+     {value: 'table', label: 'Table Data Asset'},
+     {value: 'query', label: 'Query Data Asset'}
    ]}
 >
 
@@ -197,7 +196,7 @@ Environment variables securely store your GX Cloud and Microsoft SQL Server cred
 
  6. Add the Data Asset to your Data Source. A new Data Asset is created and added to a Data Source simultaneously.
 
-    ```python title="Python" name="docs/docusaurus/docs/cloud/connect/connect_sqlserver.py - add table data asset" 
+   ```python title="Python" name="docs/docusaurus/docs/cloud/connect/connect_sqlserver.py - add table data asset" 
    ```
 
 </TabItem>
@@ -216,7 +215,7 @@ Environment variables securely store your GX Cloud and Microsoft SQL Server cred
 
  6. Add the Data Asset to your Data Source. A new Data Asset is created and added to a Data Source simultaneously.
 
-    ```python title="Python" name="docs/docusaurus/docs/cloud/connect/connect_sqlserver.py - add query data asset" 
+   ```python title="Python" name="docs/docusaurus/docs/cloud/connect/connect_sqlserver.py - add query data asset" 
    ```
    
 </TabItem>
