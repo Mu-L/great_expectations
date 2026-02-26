@@ -58,9 +58,7 @@ data_asset_name = "my_query_asset"
 query = "SELECT * from my_table WHERE column1 = 'value' AND column2 > 20"
 # </snippet>
 
-# Hide this
 data_source = context.data_sources.get(datasource_name)
-# Hide this
 
 # <snippet name="docs/docusaurus/docs/cloud/connect/connect_sqlserver.py - add query data asset">
 query_data_asset = data_source.add_query_asset(query=query, name=data_asset_name)
