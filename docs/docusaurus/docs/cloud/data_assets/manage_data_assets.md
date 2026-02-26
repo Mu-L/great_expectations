@@ -179,8 +179,8 @@ If you encounter an issue performing a GX Cloud task, review log information to 
 
 SQL Data Sources support validating the records in a single table or the records returned by a SQL query.
 
-- To validate the records in a single table, create a Table Data Asset using the [GX Cloud UI](/cloud/data_assets/manage_data_assets.md?interface=ui#add-a-data-asset-from-an-existing-data-source) or the GX Cloud API [`add_table_asset` method](/reference/api/datasource/fluent/SQLDatasource_class).
-- To validate the records returned by a SQL query, create a Query Data Asset with the GX Cloud API [`add_query_asset` method](/reference/api/datasource/fluent/SQLDatasource_class).
+- To validate the records in a single table, create a Table Data Asset using the [GX Cloud UI](/cloud/data_assets/manage_data_assets.md?interface=ui#add-a-data-asset-from-an-existing-data-source) or the GX Cloud API [`add_table_asset` method](/reference/api/datasource/fluent/SQLDatasource_class.mdx).
+- To validate the records returned by a SQL query, create a Query Data Asset with the GX Cloud API [`add_query_asset` method](/reference/api/datasource/fluent/SQLDatasource_class.mdx).
 
 Query Data Assets have some limitations compared to Table Data Assets, as outlined in the following table.
 
