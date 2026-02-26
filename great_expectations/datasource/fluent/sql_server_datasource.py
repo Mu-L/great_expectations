@@ -6,6 +6,7 @@ from urllib.parse import quote, quote_plus
 
 from typing_extensions import Annotated
 
+from great_expectations._docs_decorators import public_api
 from great_expectations.compatibility import pydantic
 from great_expectations.compatibility.pydantic import Field
 from great_expectations.compatibility.pyodbc import pyodbc
