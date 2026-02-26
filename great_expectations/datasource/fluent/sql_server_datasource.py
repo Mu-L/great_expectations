@@ -156,7 +156,7 @@ _CONNECTION_DETAIL_FIELDS: Final[frozenset[str]] = frozenset(
     }
 )
 
-
+@public_api
 class SQLServerDatasource(SQLDatasource):
     """Adds a SQL Server datasource to the data context.
 
