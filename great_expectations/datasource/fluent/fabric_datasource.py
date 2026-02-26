@@ -21,6 +21,7 @@ class UnsupportedAuthenticationError(ValueError):
             f"authentication, got {authentication!r}."
         )
 
+
 @public_api
 class FabricDatasource(SQLServerDatasource):
     """Adds a Microsoft Fabric datasource to the data context.
