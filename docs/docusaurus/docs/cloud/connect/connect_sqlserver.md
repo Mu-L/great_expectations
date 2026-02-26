@@ -38,7 +38,7 @@ To connect GX Cloud to data stored in Microsoft SQL Server, you can use the GX C
    - **Schema**: Enter the name of the Microsoft SQL Server schema where the data you want to validate is stored.
    - **Port**:  Enter the port configured for your Microsoft SQL Server instance, typically `1433`.
    - **Encrypt**: Select a TLS encryption protocol:
-     - **Optional**: Establish an encrypted connection if your Microsoft SQL Server instance is configured to force encryption. Otherwise establish an unencrypted connection.
+     - **Optional**: Establish an encrypted connection if your Microsoft SQL Server instance is configured to force encryption. Otherwise, establish an unencrypted connection.
      - **Mandatory**: Require the connection to be encrypted. Connection will fail if the server does not support TLS.
      - **Strict**: Require the connection to be encrypted and validate the server certificate. Connection will fail if the server does not support TLS or the certificate is not valid.
    - **Driver**: If you are using an [agent-enabled deployment](/cloud/deploy/deployment_patterns.md) of GX Cloud, enter the name of the ODBC driver your environment uses to connect to Microsoft SQL Server. Common values include the following:
@@ -141,7 +141,7 @@ Environment variables securely store your GX Cloud and Microsoft SQL Server cred
    - `schema`: The name of the Microsoft SQL Server schema where the data you want to validate is stored.
    - `port`:  The port configured for your Microsoft SQL Server instance, typically `1433`.
    - `encrypt`: The TLS encryption protocol to use:
-     - `Optional`: Establish an encrypted connection if your Microsoft SQL Server instance is configured to force encryption. Otherwise establish an unencrypted connection.
+     - `Optional`: Establish an encrypted connection if your Microsoft SQL Server instance is configured to force encryption. Otherwise, establish an unencrypted connection.
      - `Mandatory`: Require the connection to be encrypted. Connection will fail if the server does not support TLS.
      - `Strict`: Require the connection to be encrypted and validate the server certificate. Connection will fail if the server does not support TLS or the certificate is not valid.
    - `driver`: If you are using an [agent-enabled deployment](/cloud/deploy/deployment_patterns.md) of GX Cloud, enter the name of the ODBC driver your environment uses to connect to Microsoft SQL Server. Common values include the following:
