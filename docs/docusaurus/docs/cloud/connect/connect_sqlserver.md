@@ -49,7 +49,7 @@ To connect GX Cloud to data stored in Microsoft SQL Server, you can use the GX C
      - [SQL Server](https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-login?view=sql-server-ver17):
        - **Username**: Enter the username you use to access Microsoft SQL Server.
        - **Password**: Enter the password you use to access Microsoft SQL Server.
-     - [Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-create-new-tenant):
+     - [Entra ID Service Principal](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-create-new-tenant):
        - **Tenant ID**: Enter the unique identifier for your organization's instance of Microsoft Entra ID.
        - **Client ID**: Enter the application ID for your new or existing app registration.
        - **Client secret**: Enter a new secret key from your app registration.
@@ -140,11 +140,11 @@ Environment variables securely store your GX Cloud and Microsoft SQL Server cred
    - `database`: The name of the Microsoft SQL Server database where the data you want to validate is stored.
    - `schema`: The name of the Microsoft SQL Server schema where the data you want to validate is stored.
    - `port`:  The port configured for your Microsoft SQL Server instance, typically `1433`.
-   - `encrypt`: The TLS encryption protocol to use:
+   - `encrypt`: The TLS encryption protocol to use. Accepts the following:
      - `Optional`: Establish an encrypted connection if your Microsoft SQL Server instance is configured to force encryption. Otherwise, establish an unencrypted connection.
      - `Mandatory`: Require the connection to be encrypted. Connection will fail if the server does not support TLS.
      - `Strict`: Require the connection to be encrypted and validate the server certificate. Connection will fail if the server does not support TLS or the certificate is not valid.
-   - `driver`: If you are using an [agent-enabled deployment](/cloud/deploy/deployment_patterns.md) of GX Cloud, enter the name of the ODBC driver your environment uses to connect to Microsoft SQL Server. Common values include the following:
+   - `driver`: If you are using an [agent-enabled deployment](/cloud/deploy/deployment_patterns.md) of GX Cloud, provide the name of the ODBC driver your environment uses to connect to Microsoft SQL Server. Common values include the following:
      - `ODBC Driver 18 for SQL Server`
      - `ODBC Driver 17 for SQL Server` 
      - `FreeTDS` 

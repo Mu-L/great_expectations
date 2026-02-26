@@ -20,6 +20,7 @@ GX supports the following SQL dialects:
 
 - BigQuery SQL
 - Databricks SQL
+- Microsoft Fabric
 - Microsoft SQL Server
 - PostgreSQL
 - Redshift

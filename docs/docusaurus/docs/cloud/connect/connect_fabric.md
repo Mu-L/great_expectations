@@ -136,11 +136,11 @@ Environment variables securely store your GX Cloud and Microsoft Fabric credenti
    - `database`: The name of the Microsoft Fabric database where the data you want to validate is stored.
    - `schema`: The name of the Microsoft Fabric schema where the data you want to validate is stored.
    - `port`:  The port configured for your Microsoft Fabric instance, typically `1433`.
-   - `encrypt`: The TLS encryption protocol to use:
+   - `encrypt`: The TLS encryption protocol to use. Accepts the following:
      - `Optional`: Establish an encrypted connection if your Microsoft Fabric instance is configured to force encryption. Otherwise, establish an unencrypted connection.
      - `Mandatory`: Require the connection to be encrypted. Connection will fail if your Microsoft Fabric instance does not support TLS.
      - `Strict`: Require the connection to be encrypted and validate the server certificate. Connection will fail if your Microsoft Fabric instance does not support TLS or the certificate is not valid.
-   - `driver`: If you are using an [agent-enabled deployment](/cloud/deploy/deployment_patterns.md) of GX Cloud, enter the name of the ODBC driver your environment uses to connect to Microsoft Fabric. Common values include the following:
+   - `driver`: If you are using an [agent-enabled deployment](/cloud/deploy/deployment_patterns.md) of GX Cloud, provide the name of the ODBC driver your environment uses to connect to Microsoft Fabric. Common values include the following:
      - `ODBC Driver 18 for SQL Server`
      - `ODBC Driver 17 for SQL Server` 
      - `FreeTDS` 
