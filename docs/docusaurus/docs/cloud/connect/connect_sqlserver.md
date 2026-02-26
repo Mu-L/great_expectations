@@ -41,7 +41,7 @@ To connect GX Cloud to data stored in SQL Server, you can use the GX Cloud UI or
      - **Optional**: Establish an encrypted connection if your SQL Server instance is configured to force encryption. Otherwise establish an unencrypted connection.
      - **Mandatory**: Require the connection to be encrypted. Connection will fail if the server does not support TLS.
      - **Strict**: Require the connection to be encrypted and validate the server certificate. Connection will fail if the server does not support TLS or the certificate is not valid.
-   - **Driver**: If you are using an [agent-enabled deployment](/cloud/deploy/deploy_gx_agent.md) of GX Cloud, enter the name of the ODBC driver your environment uses to connect to SQL Server. Common values include the following:
+   - **Driver**: If you are using an [agent-enabled deployment](/cloud/deploy/deployment_patterns.md) of GX Cloud, enter the name of the ODBC driver your environment uses to connect to SQL Server. Common values include the following:
      - `ODBC Driver 18 for SQL Server`
      - `ODBC Driver 17 for SQL Server` 
      - `FreeTDS` 
@@ -144,7 +144,7 @@ Environment variables securely store your GX Cloud and Microsoft SQL Server cred
      - `Optional`: Establish an encrypted connection if your SQL Server instance is configured to force encryption. Otherwise establish an unencrypted connection.
      - `Mandatory`: Require the connection to be encrypted. Connection will fail if the server does not support TLS.
      - `Strict`: Require the connection to be encrypted and validate the server certificate. Connection will fail if the server does not support TLS or the certificate is not valid.
-   - `driver`: If you are using an [agent-enabled deployment](/cloud/deploy/deploy_gx_agent.md) of GX Cloud, enter the name of the ODBC driver your environment uses to connect to SQL Server. Common values include the following:
+   - `driver`: If you are using an [agent-enabled deployment](/cloud/deploy/deployment_patterns.md) of GX Cloud, enter the name of the ODBC driver your environment uses to connect to SQL Server. Common values include the following:
      - `ODBC Driver 18 for SQL Server`
      - `ODBC Driver 17 for SQL Server` 
      - `FreeTDS` 
