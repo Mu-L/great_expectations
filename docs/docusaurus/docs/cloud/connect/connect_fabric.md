@@ -8,7 +8,7 @@ hide_table_of_contents: true
 import TabItem from '@theme/TabItem';
 import Tabs from '@theme/Tabs';
 
-To connect GX Cloud to data stored in Fabric, you can use the GX Cloud UI or the GX Cloud API.
+To connect GX Cloud to data stored in Microsoft Fabric, you can use the GX Cloud UI or the GX Cloud API.
 
 <Tabs 
    queryString="interface"
@@ -27,21 +27,21 @@ To connect GX Cloud to data stored in Fabric, you can use the GX Cloud UI or the
 - A Microsoft Fabric database, schema, and table or view.
 - [Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-create-new-tenant) credentials that authorize read access to Microsoft Fabric.
 
-## Connect to a Fabric Data Source and add a Data Asset
+## Connect to a Microsoft Fabric Data Source and add a Data Asset
 
-1. In GX Cloud, select the relevant **Workspace** and then click **Data Assets** > **New Data Asset** > **New Data Source** > **Fabric**.
+1. In GX Cloud, select the relevant **Workspace** and then click **Data Assets** > **New Data Asset** > **New Data Source** > **Microsoft Fabric**.
 2. Enter a meaningful name for the Data Source in the **Data Source name** field.
 3. Supply your connection details.
 
    - **Host**: Enter your Microsoft Fabric workload endpoint, for example `myworkspace.datawarehouse.fabric.microsoft.com` or `abc123.database.fabric.microsoft.com`.
-   - **Database**: Enter the name of the Fabric database where the data you want to validate is stored.
-   - **Schema**: Enter the name of the Fabric schema where the data you want to validate is stored.
-   - **Port**:  Enter the port configured for your Fabric instance, typically `1433`.
+   - **Database**: Enter the name of the Microsoft Fabric database where the data you want to validate is stored.
+   - **Schema**: Enter the name of the Microsoft Fabric schema where the data you want to validate is stored.
+   - **Port**:  Enter the port configured for your Microsoft Fabric instance, typically `1433`.
    - **Encrypt**: Select a TLS encryption protocol:
-     - **Optional**: Establish an encrypted connection if your Fabric instance is configured to force encryption. Otherwise establish an unencrypted connection.
-     - **Mandatory**: Require the connection to be encrypted. Connection will fail if your Fabric instance does not support TLS.
-     - **Strict**: Require the connection to be encrypted and validate the server certificate. Connection will fail if your Fabric instance does not support TLS or the certificate is not valid.
-   - **Driver**: If you are using an [agent-enabled deployment](/cloud/deploy/deployment_patterns.md) of GX Cloud, enter the name of the ODBC driver your environment uses to connect to Fabric. Common values include the following:
+     - **Optional**: Establish an encrypted connection if your Microsoft Fabric instance is configured to force encryption. Otherwise establish an unencrypted connection.
+     - **Mandatory**: Require the connection to be encrypted. Connection will fail if your Microsoft Fabric instance does not support TLS.
+     - **Strict**: Require the connection to be encrypted and validate the server certificate. Connection will fail if your Microsoft Fabric instance does not support TLS or the certificate is not valid.
+   - **Driver**: If you are using an [agent-enabled deployment](/cloud/deploy/deployment_patterns.md) of GX Cloud, enter the name of the ODBC driver your environment uses to connect to Microsoft Fabric. Common values include the following:
      - `ODBC Driver 18 for SQL Server`
      - `ODBC Driver 17 for SQL Server` 
      - `FreeTDS` 
@@ -68,7 +68,7 @@ To connect GX Cloud to data stored in Fabric, you can use the GX Cloud UI or the
 - Recommended. A [Python virtual environment](https://docs.python.org/3/library/venv.html).
 
 ## Install GX Cloud 
-Run the following terminal command to install the GX Cloud library with support for Fabric dependencies:
+Run the following terminal command to install the GX Cloud library with support for Microsoft Fabric dependencies:
 
 ```bash title="Terminal input"
 pip install 'great_expectations[fabric]'
@@ -129,18 +129,18 @@ Environment variables securely store your GX Cloud and Microsoft Fabric credenti
 
 2. Define the Data Source's parameters.
 
-   The following information is required when you create a Fabric Data Source:
+   The following information is required when you create a Microsoft Fabric Data Source:
 
    - `name`: A descriptive name used to reference the Data Source. This should be unique within your workspace.
    - `host`: Your Microsoft Fabric workload endpoint, for example `myworkspace.datawarehouse.fabric.microsoft.com` or `abc123.database.fabric.microsoft.com`.
-   - `database`: The name of the Fabric database where the data you want to validate is stored.
-   - `schema`: The name of the Fabric schema where the data you want to validate is stored.
-   - `port`:  The port configured for your Fabric instance, typically `1433`.
+   - `database`: The name of the Microsoft Fabric database where the data you want to validate is stored.
+   - `schema`: The name of the Microsoft Fabric schema where the data you want to validate is stored.
+   - `port`:  The port configured for your Microsoft Fabric instance, typically `1433`.
    - `encrypt`: The TLS encryption protocol to use:
-     - `Optional`: Establish an encrypted connection if your Fabric instance is configured to force encryption. Otherwise establish an unencrypted connection.
-     - `Mandatory`: Require the connection to be encrypted. Connection will fail if your Fabric instance does not support TLS.
-     - `Strict`: Require the connection to be encrypted and validate the server certificate. Connection will fail if your Fabric instance does not support TLS or the certificate is not valid.
-   - `driver`: If you are using an [agent-enabled deployment](/cloud/deploy/deployment_patterns.md) of GX Cloud, enter the name of the ODBC driver your environment uses to connect to Fabric. Common values include the following:
+     - `Optional`: Establish an encrypted connection if your Microsoft Fabric instance is configured to force encryption. Otherwise establish an unencrypted connection.
+     - `Mandatory`: Require the connection to be encrypted. Connection will fail if your Microsoft Fabric instance does not support TLS.
+     - `Strict`: Require the connection to be encrypted and validate the server certificate. Connection will fail if your Microsoft Fabric instance does not support TLS or the certificate is not valid.
+   - `driver`: If you are using an [agent-enabled deployment](/cloud/deploy/deployment_patterns.md) of GX Cloud, enter the name of the ODBC driver your environment uses to connect to Microsoft Fabric. Common values include the following:
      - `ODBC Driver 18 for SQL Server`
      - `ODBC Driver 17 for SQL Server` 
      - `FreeTDS` 
@@ -153,7 +153,7 @@ Environment variables securely store your GX Cloud and Microsoft Fabric credenti
    ```python title="Python" name="docs/docusaurus/docs/cloud/connect/connect_fabric.py - define source" 
    ```
 
-3. Add a Fabric Data Source to your Data Context by executing the following code: 
+3. Add a Microsoft Fabric Data Source to your Data Context by executing the following code: 
 
    ```python title="Python" name="docs/docusaurus/docs/cloud/connect/connect_fabric.py - add source" 
    ```
@@ -177,7 +177,7 @@ Environment variables securely store your GX Cloud and Microsoft Fabric credenti
 
 5. Define your Table Data Asset's parameters.
 
-   The following information is required when you create a Fabric Table Data Asset:
+   The following information is required when you create a Microsoft Fabric Table Data Asset:
 
    - `name`: A name by which you can reference the Data Asset in the future. This should be unique within the Data Source.
    - `table_name`: The name of the SQL table that the Table Data Asset will retrieve records from.
@@ -199,7 +199,7 @@ Environment variables securely store your GX Cloud and Microsoft Fabric credenti
 
 5. Define your Query Data Asset's parameters.
 
-   The following information is required when you create a Fabric Query Data Asset:
+   The following information is required when you create a Microsoft Fabric Query Data Asset:
 
    - `name`: A name by which you can reference the Data Asset in the future. This should be unique within the Data Source.
    - `query`: The SQL query that the Data Asset will retrieve records from.

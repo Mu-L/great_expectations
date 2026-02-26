@@ -13,7 +13,7 @@ import great_expectations as gx
 context = gx.get_context(mode="cloud")
 # </snippet>
 
-# Add a Fabric Data Source
+# Add a Microsoft Fabric Data Source
 # <snippet name="docs/docusaurus/docs/cloud/connect/connect_fabric.py - define source">
 datasource_name = "Fabric"
 host = "myworkspace.datawarehouse.fabric.microsoft.com"
@@ -52,13 +52,14 @@ table_data_asset = data_source.add_table_asset(
 )
 # </snippet>
 
+# Get the updated Data Source
+data_source = context.data_sources.get(datasource_name)
+
 # Add a Query Data Asset
 # <snippet name="docs/docusaurus/docs/cloud/connect/connect_fabric.py - define query data asset">
 data_asset_name = "my_query_asset"
 query = "SELECT * from my_table WHERE column1 = 'value' AND column2 > 20"
 # </snippet>
-
-data_source = context.data_sources.get(datasource_name)
 
 # <snippet name="docs/docusaurus/docs/cloud/connect/connect_fabric.py - add query data asset">
 query_data_asset = data_source.add_query_asset(query=query, name=data_asset_name)
