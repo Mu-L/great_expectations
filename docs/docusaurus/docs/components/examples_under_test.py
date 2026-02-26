@@ -347,7 +347,7 @@ connect_to_cloud = [
         # data_context_dir="",
         backend_dependencies=[BackendDependencies.CLOUD],
     ),
-    # SQL Server
+    # Microsoft SQL Server
     IntegrationTestFixture(
         # To test, run:
         # pytest --docs-tests -k "cloud_docs_connect_sqlserver" tests/integration/test_script_runner.py

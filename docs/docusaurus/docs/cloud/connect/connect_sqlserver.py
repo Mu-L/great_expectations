@@ -13,7 +13,7 @@ import great_expectations as gx
 context = gx.get_context(mode="cloud")
 # </snippet>
 
-# Add a SQL Server Data Source
+# Add a Microsoft SQL Server Data Source
 # <snippet name="docs/docusaurus/docs/cloud/connect/connect_sqlserver.py - define source">
 datasource_name = "Self-hosted SQL Server"
 host = "sql-server.example.com"

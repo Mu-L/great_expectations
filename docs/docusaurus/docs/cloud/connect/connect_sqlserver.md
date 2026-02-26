@@ -8,7 +8,7 @@ hide_table_of_contents: true
 import TabItem from '@theme/TabItem';
 import Tabs from '@theme/Tabs';
 
-To connect GX Cloud to data stored in SQL Server, you can use the GX Cloud UI or the GX Cloud API.
+To connect GX Cloud to data stored in Microsoft SQL Server, you can use the GX Cloud UI or the GX Cloud API.
 
 <Tabs 
    queryString="interface"
@@ -27,28 +27,28 @@ To connect GX Cloud to data stored in SQL Server, you can use the GX Cloud UI or
 - A Microsoft SQL Server database, schema, and table or view.
 - Credentials that authorize read access to Microsoft SQL Server. You can use [SQL Server Authentication](https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-login?view=sql-server-ver17) or [Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-create-new-tenant).
 
-## Connect to a SQL Server Data Source and add a Data Asset
+## Connect to a Microsoft SQL Server Data Source and add a Data Asset
 
-1. In GX Cloud, select the relevant **Workspace** and then click **Data Assets** > **New Data Asset** > **New Data Source** > **SQL Server**.
+1. In GX Cloud, select the relevant **Workspace** and then click **Data Assets** > **New Data Asset** > **New Data Source** > **Microsoft SQL Server**.
 2. Enter a meaningful name for the Data Source in the **Data Source name** field.
 3. Supply your connection details.
 
-   - **Host**: Enter the environment where the SQL Server engine is installed and running, for example `sql-server.example.com` for a self-hosted SQL Server instance.
-   - **Database**: Enter the name of the SQL Server database where the data you want to validate is stored.
-   - **Schema**: Enter the name of the SQL Server schema where the data you want to validate is stored.
-   - **Port**:  Enter the port configured for your SQL Server instance, typically `1433`.
+   - **Host**: Enter the environment where the Microsoft SQL Server engine is installed and running, for example `sql-server.example.com` for a self-hosted Microsoft SQL Server instance.
+   - **Database**: Enter the name of the Microsoft SQL Server database where the data you want to validate is stored.
+   - **Schema**: Enter the name of the Microsoft SQL Server schema where the data you want to validate is stored.
+   - **Port**:  Enter the port configured for your Microsoft SQL Server instance, typically `1433`.
    - **Encrypt**: Select a TLS encryption protocol:
-     - **Optional**: Establish an encrypted connection if your SQL Server instance is configured to force encryption. Otherwise establish an unencrypted connection.
+     - **Optional**: Establish an encrypted connection if your Microsoft SQL Server instance is configured to force encryption. Otherwise establish an unencrypted connection.
      - **Mandatory**: Require the connection to be encrypted. Connection will fail if the server does not support TLS.
      - **Strict**: Require the connection to be encrypted and validate the server certificate. Connection will fail if the server does not support TLS or the certificate is not valid.
-   - **Driver**: If you are using an [agent-enabled deployment](/cloud/deploy/deployment_patterns.md) of GX Cloud, enter the name of the ODBC driver your environment uses to connect to SQL Server. Common values include the following:
+   - **Driver**: If you are using an [agent-enabled deployment](/cloud/deploy/deployment_patterns.md) of GX Cloud, enter the name of the ODBC driver your environment uses to connect to Microsoft SQL Server. Common values include the following:
      - `ODBC Driver 18 for SQL Server`
      - `ODBC Driver 17 for SQL Server` 
      - `FreeTDS` 
    - **Authentication method**:  Select **SQL Server** or **Entra ID Service Principal**. Depending on your selection, the following credential fields will be required:
      - [SQL Server](https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-login?view=sql-server-ver17):
-       - **Username**: Enter the username you use to access SQL Server.
-       - **Password**: Enter the password you use to access SQL Server.
+       - **Username**: Enter the username you use to access Microsoft SQL Server.
+       - **Password**: Enter the password you use to access Microsoft SQL Server.
      - [Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-create-new-tenant):
        - **Tenant ID**: Enter the unique identifier for your organization's instance of Microsoft Entra ID.
        - **Client ID**: Enter the application ID for your new or existing app registration.
@@ -73,7 +73,7 @@ To connect GX Cloud to data stored in SQL Server, you can use the GX Cloud UI or
 - Recommended. A [Python virtual environment](https://docs.python.org/3/library/venv.html).
 
 ## Install GX Cloud 
-Run the following terminal command to install the GX Cloud library with support for SQL Server dependencies:
+Run the following terminal command to install the GX Cloud library with support for Microsoft SQL Server dependencies:
 
 ```bash title="Terminal input"
 pip install 'great_expectations[sql-server]'
@@ -133,25 +133,25 @@ Environment variables securely store your GX Cloud and Microsoft SQL Server cred
 
 2. Define the Data Source's parameters.
 
-   The following information is required when you create a SQL Server Data Source:
+   The following information is required when you create a Microsoft SQL Server Data Source:
 
    - `name`: A descriptive name used to reference the Data Source. This should be unique within your workspace.
-   - `host`: The environment where the SQL Server engine is installed and running, for example `sql-server.example.com` for a self-hosted SQL Server instance.
-   - `database`: The name of the SQL Server database where the data you want to validate is stored.
-   - `schema`: The name of the SQL Server schema where the data you want to validate is stored.
-   - `port`:  The port configured for your SQL Server instance, typically `1433`.
+   - `host`: The environment where the Microsoft SQL Server engine is installed and running, for example `sql-server.example.com` for a self-hosted Microsoft SQL Server instance.
+   - `database`: The name of the Microsoft SQL Server database where the data you want to validate is stored.
+   - `schema`: The name of the Microsoft SQL Server schema where the data you want to validate is stored.
+   - `port`:  The port configured for your Microsoft SQL Server instance, typically `1433`.
    - `encrypt`: The TLS encryption protocol to use:
-     - `Optional`: Establish an encrypted connection if your SQL Server instance is configured to force encryption. Otherwise establish an unencrypted connection.
+     - `Optional`: Establish an encrypted connection if your Microsoft SQL Server instance is configured to force encryption. Otherwise establish an unencrypted connection.
      - `Mandatory`: Require the connection to be encrypted. Connection will fail if the server does not support TLS.
      - `Strict`: Require the connection to be encrypted and validate the server certificate. Connection will fail if the server does not support TLS or the certificate is not valid.
-   - `driver`: If you are using an [agent-enabled deployment](/cloud/deploy/deployment_patterns.md) of GX Cloud, enter the name of the ODBC driver your environment uses to connect to SQL Server. Common values include the following:
+   - `driver`: If you are using an [agent-enabled deployment](/cloud/deploy/deployment_patterns.md) of GX Cloud, enter the name of the ODBC driver your environment uses to connect to Microsoft SQL Server. Common values include the following:
      - `ODBC Driver 18 for SQL Server`
      - `ODBC Driver 17 for SQL Server` 
      - `FreeTDS` 
    - `authentication`:  Accepts `SQL Server` or `Entra ID`. Depending on your selection, the following credential parameters will be required:
      - [SQL Server](https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-login?view=sql-server-ver17):
-       - `username`: The username you use to access SQL Server.
-       - `password`: The password you use to access SQL Server.
+       - `username`: The username you use to access Microsoft SQL Server.
+       - `password`: The password you use to access Microsoft SQL Server.
      - [Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-create-new-tenant):
        - `tenant_id`: The unique identifier for your organization's instance of Microsoft Entra ID.
        - `client_id`: The application ID for your new or existing app registration.
@@ -162,7 +162,7 @@ Environment variables securely store your GX Cloud and Microsoft SQL Server cred
    ```python title="Python" name="docs/docusaurus/docs/cloud/connect/connect_sqlserver.py - define source" 
    ```
 
-3. Add a SQL Server Data Source to your Data Context by executing the following code: 
+3. Add a Microsoft SQL Server Data Source to your Data Context by executing the following code: 
 
    ```python title="Python" name="docs/docusaurus/docs/cloud/connect/connect_sqlserver.py - add source" 
    ```
@@ -186,7 +186,7 @@ Environment variables securely store your GX Cloud and Microsoft SQL Server cred
 
 5. Define your Table Data Asset's parameters.
 
-   The following information is required when you create a SQL Server Table Data Asset:
+   The following information is required when you create a Microsoft SQL Server Table Data Asset:
 
    - `name`: A name by which you can reference the Data Asset in the future. This should be unique within the Data Source.
    - `table_name`: The name of the SQL table that the Table Data Asset will retrieve records from.
@@ -208,7 +208,7 @@ Environment variables securely store your GX Cloud and Microsoft SQL Server cred
 
 5. Define your Query Data Asset's parameters.
 
-   The following information is required when you create a SQL Server Query Data Asset:
+   The following information is required when you create a Microsoft SQL Server Query Data Asset:
 
    - `name`: A name by which you can reference the Data Asset in the future. This should be unique within the Data Source.
    - `query`: The SQL query that the Data Asset will retrieve records from.
