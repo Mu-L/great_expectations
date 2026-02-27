@@ -164,7 +164,7 @@ class SQLServerDatasource(SQLDatasource):
 
     Args:
         name: The name of this SQL Server datasource.
-        host: The environment where the Microsoft SQL Server engine is installed and running, 
+        host: The environment where the Microsoft SQL Server engine is installed and running,
             for example "sql-server.example.com" for a self-hosted Microsoft SQL Server instance.
         database: The name of the Microsoft SQL Server database where the data you want to validate is stored.
         schema: The name of the Microsoft SQL Server schema where the data you want to validate is stored.
