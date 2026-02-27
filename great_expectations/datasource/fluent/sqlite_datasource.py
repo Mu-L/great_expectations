@@ -202,7 +202,7 @@ class SqliteDatasource(SQLDatasource):
             ),
         )
 
-    add_table_asset.__doc__ = SQLDatasource.add_table_asset.__doc__
+    add_table_asset.__doc__ = SQLDatasource.add_table_asset.__doc__  # type: ignore[has-type] # mypy can't resolve the type due to the _MISSING sentinel default
 
     @public_api
     @override
