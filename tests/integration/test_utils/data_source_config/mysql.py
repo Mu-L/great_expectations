@@ -52,8 +52,7 @@ class MySQLBatchTestSetup(SQLBatchTestSetup[MySQLDatasourceTestConfig]):
     @property
     @override
     def connection_string(self) -> str:
-        database = self.schema or "test_ci"
-        return f"mysql+pymysql://root@localhost/{database}"
+        return "mysql+pymysql://root@localhost/test_ci"
 
     @property
     @override
@@ -71,8 +70,13 @@ class MySQLBatchTestSetup(SQLBatchTestSetup[MySQLDatasourceTestConfig]):
 
     @override
     def make_asset(self) -> TableAsset:
+        datasource_connection_string = (
+            f"mysql+pymysql://root@localhost/{self.schema}"
+            if self.schema
+            else self.connection_string
+        )
         return self.context.data_sources.add_sql(
-            name=self._random_resource_name(), connection_string=self.connection_string
+            name=self._random_resource_name(), connection_string=datasource_connection_string
         ).add_table_asset(
             name=self._random_resource_name(),
             table_name=self.table_name,
