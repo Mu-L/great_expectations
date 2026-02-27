@@ -165,39 +165,39 @@ class SQLServerDatasource(SQLDatasource):
     Args:
         name: The name of this SQL Server datasource.
         host: The environment where the Microsoft SQL Server engine is installed and running,
-            for example "sql-server.example.com" for self-hosted Microsoft SQL Server.
+            for example `sql-server.example.com` for self-hosted Microsoft SQL Server.
         database: The name of the Microsoft SQL Server database
             where the data you want to validate is stored.
         schema: The name of the Microsoft SQL Server schema
             where the data you want to validate is stored.
         port: The port configured for your Microsoft SQL Server instance,
-            typically 1433.
+            typically `1433`.
         encrypt: The TLS encryption protocol to use.
             Accepts the following.
-            - "Optional" - Establish an encrypted connection if your
+            - `Optional` - Establish an encrypted connection if your
             Microsoft SQL Server instance is configured to force encryption.
             Otherwise, establish an unencrypted connection.
-            - "Mandatory" - Require the connection to be encrypted.
+            - `Mandatory` - Require the connection to be encrypted.
             Connection will fail if your Microsoft SQL Server instance does not support TLS.
-            - "Strict" - Require the connection to be encrypted and
+            - `Strict` - Require the connection to be encrypted and
             validate the server certificate. Connection will fail if your Microsoft SQL Server
             instance does not support TLS or the certificate is not valid.
         driver: The name of the ODBC driver your environment uses to connect to
             Microsoft SQL Server. Common values include the following:
-            - "ODBC Driver 18 for SQL Server"
-            - "ODBC Driver 17 for SQL Server"
-            - "FreeTDS".
-        authentication: Accepts "SQL Server" or "Entra ID".
+            - `ODBC Driver 18 for SQL Server`
+            - `ODBC Driver 17 for SQL Server`
+            - `FreeTDS`
+        authentication: Accepts `SQL Server` or `Entra ID`.
             Required credential parameters depend on the authentication method.
-        username: For "SQL Server" authentication.
+        username: For `SQL Server` authentication.
             The username you use to access Microsoft SQL Server.
-        password: For "SQL Server" authentication.
+        password: For `SQL Server` authentication.
             The password you use to access Microsoft SQL Server.
-        tenant_id: For "Entra ID" authentication.
+        tenant_id: For `Entra ID` authentication.
             The unique identifier for your organization's instance of Microsoft Entra ID.
-        client_id: For "Entra ID" authentication.
+        client_id: For `Entra ID` authentication.
             The application ID for your new or existing Entra ID app registration.
-        client_secret: For "Entra ID" authentication.
+        client_secret: For `Entra ID` authentication.
             A new secret key from your Entra ID app registration.
         assets: An optional dictionary whose keys are TableAsset or QueryAsset names and whose
             values are TableAsset or QueryAsset objects.
