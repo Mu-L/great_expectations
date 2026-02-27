@@ -343,7 +343,7 @@ connect_to_cloud = [
         # To test, run:
         # pytest --docs-tests -k "cloud_docs_connect_fabric" tests/integration/test_script_runner.py
         name="cloud_docs_connect_fabric",
-        user_flow_script="docs/docusaurus/docs/cloud/connect/fabric.py",
+        user_flow_script="docs/docusaurus/docs/cloud/connect/connect_fabric.py",
         # data_context_dir="",
         backend_dependencies=[BackendDependencies.CLOUD],
     ),
