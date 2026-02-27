@@ -1356,6 +1356,7 @@ class SQLDatasource(Datasource):
         if schema_name is _MISSING:
             schema_name = self.schema_
         else:
+            # deprecated-v1.14.0
             warnings.warn(
                 "The `schema_name argument` is deprecated and will be removed in a future release."
                 " The schema now comes from the datasource.",
