@@ -28,7 +28,7 @@ from typing import (
 from typing_extensions import Annotated, Never
 
 import great_expectations.exceptions as gx_exceptions
-from great_expectations._docs_decorators import public_api
+from great_expectations._docs_decorators import deprecated_method_or_class, public_api
 from great_expectations.compatibility import pydantic
 from great_expectations.compatibility.pydantic import Field
 from great_expectations.compatibility.sqlalchemy import sqlalchemy as sa
@@ -94,6 +94,8 @@ if TYPE_CHECKING:
     )
 
 LOGGER: Final[logging.Logger] = logging.getLogger(__name__)
+
+MISSING: Final = object()  # sentinel value to distinguish "not provided" from None
 
 DEFAULT_INITIAL_QUOTE_CHARACTERS: Final[Tuple[str, str, str, str]] = ('"', "'", "`", "[")
 DEFAULT_FINAL_QUOTE_CHARACTERS: Final[Mapping[str, str]] = {
@@ -1239,6 +1241,16 @@ class SQLDatasource(Datasource):
         validate_assignment = True
 
     @property
+    def schema_(self) -> str | None:
+        """The default schema for this datasource, if any.
+
+        Subclasses (e.g. SnowflakeDatasource) override this to extract the
+        schema from the connection string.  The base implementation returns
+        ``None`` so that ``add_table_asset`` can fall back gracefully.
+        """
+        return None
+
+    @property
     @override
     def execution_engine_type(self) -> Type[SqlAlchemyExecutionEngine]:
         """Returns the default execution engine type."""
@@ -1314,12 +1326,16 @@ class SQLDatasource(Datasource):
                 asset._datasource = self
                 asset.test_connection()
 
+    @deprecated_method_or_class(
+        version="1.0.0a4",
+        message="`schema_name` is deprecated. The schema now comes from the datasource.",
+    )
     @public_api
     def add_table_asset(
         self,
         name: str,
         table_name: str = "",
-        schema_name: Optional[str] = None,
+        schema_name: Optional[str] = MISSING,  # type: ignore[assignment] # sentinel value
         batch_metadata: Optional[BatchMetadata] = None,
     ) -> TableAsset:
         """Adds a table asset to this datasource.
@@ -1327,14 +1343,29 @@ class SQLDatasource(Datasource):
         Args:
             name: The name of this table asset.
             table_name: The table where the data resides.
-            schema_name: The schema that holds the table.
-            batch_metadata: BatchMetadata we want to associate with this DataAsset and all batches derived from it.
+            schema_name: The schema that holds the table. Will use the datasource schema if not
+                provided.
+            batch_metadata: BatchMetadata we want to associate with this DataAsset and all batches
+                derived from it.
 
         Returns:
             The table asset that is added to the datasource.
             The type of this object will match the necessary type for this datasource.
             eg, it could be a TableAsset or a SqliteTableAsset.
-        """  # noqa: E501 # FIXME CoP
+        """
+        if schema_name is MISSING:
+            schema_name = self.schema_
+        else:
+            warnings.warn(
+                "The `schema_name argument` is deprecated and will be removed in a future release."
+                " The schema now comes from the datasource.",
+                category=DeprecationWarning,
+            )
+            if self.schema_ is not None and schema_name != self.schema_:
+                warnings.warn(
+                    f"schema_name {schema_name} does not match datasource schema {self.schema_}",
+                    category=GxDatasourceWarning,
+                )
         if schema_name:
             schema_name = self._TableAsset._to_lower_if_not_bracketed_by_quotes(schema_name)
         asset = self._TableAsset(

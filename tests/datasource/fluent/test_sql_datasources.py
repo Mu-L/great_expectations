@@ -343,6 +343,7 @@ def test_to_lower_if_not_quoted(
 
 
 @pytest.mark.unit
+@pytest.mark.filterwarnings("ignore::DeprecationWarning")
 class TestTableAsset:
     @pytest.mark.parametrize("schema_name", ["my_schema", "MY_SCHEMA", "My_Schema"])
     def test_unquoted_schema_names_are_added_as_lowercase(
