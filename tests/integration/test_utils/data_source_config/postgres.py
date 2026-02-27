@@ -48,7 +48,8 @@ class PostgresBatchTestSetup(SQLBatchTestSetup[PostgreSQLDatasourceTestConfig]):
     @property
     @override
     def connection_string(self) -> str:
-        return "postgresql+psycopg2://postgres@localhost:5432/test_ci"
+        options = f"?options=-c search_path%3D{self.schema}" if self.schema else ""
+        return f"postgresql+psycopg2://postgres@localhost:5432/test_ci{options}"
 
     @property
     @override

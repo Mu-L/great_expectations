@@ -52,7 +52,8 @@ class MySQLBatchTestSetup(SQLBatchTestSetup[MySQLDatasourceTestConfig]):
     @property
     @override
     def connection_string(self) -> str:
-        return "mysql+pymysql://root@localhost/test_ci"
+        database = self.schema or "test_ci"
+        return f"mysql+pymysql://root@localhost/{database}"
 
     @property
     @override

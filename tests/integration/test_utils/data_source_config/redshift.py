@@ -1,19 +1,24 @@
-from typing import Mapping, Optional
+from __future__ import annotations
 
-import pandas as pd
+from typing import TYPE_CHECKING, Mapping, Optional
+
 import pytest
 
 from great_expectations.compatibility.pydantic import BaseSettings
 from great_expectations.compatibility.typing_extensions import override
-from great_expectations.data_context import AbstractDataContext
 from great_expectations.datasource.fluent.redshift_datasource import RedshiftDsn
-from great_expectations.datasource.fluent.sql_datasource import TableAsset
-from tests.integration.sql_session_manager import SessionSQLEngineManager
 from tests.integration.test_utils.data_source_config.base import (
-    BatchTestSetup,
     DataSourceTestConfig,
 )
 from tests.integration.test_utils.data_source_config.sql import SQLBatchTestSetup
+
+if TYPE_CHECKING:
+    import pandas as pd
+
+    from great_expectations.data_context import AbstractDataContext
+    from great_expectations.datasource.fluent.sql_datasource import TableAsset
+    from tests.integration.sql_session_manager import SessionSQLEngineManager
+    from tests.integration.test_utils.data_source_config.base import BatchTestSetup
 
 
 class RedshiftConnectionConfig(BaseSettings):
@@ -25,12 +30,12 @@ class RedshiftConnectionConfig(BaseSettings):
     REDSHIFT_USERNAME: str
     REDSHIFT_SSLMODE: str
 
-    @property
-    def connection_string(self) -> RedshiftDsn:
+    def connection_string(self, schema: str | None = None) -> RedshiftDsn:
+        options = f"&options=-c search_path%3D{schema}" if schema else ""
         return RedshiftDsn(
             f"redshift+psycopg2://{self.REDSHIFT_USERNAME}:{self.REDSHIFT_PASSWORD}@"
             f"{self.REDSHIFT_HOST}:{self.REDSHIFT_PORT}/{self.REDSHIFT_DATABASE}?"
-            f"sslmode={self.REDSHIFT_SSLMODE}",
+            f"sslmode={self.REDSHIFT_SSLMODE}{options}",
             scheme="redshift+psycopg2",
         )
 
@@ -69,7 +74,7 @@ class RedshiftBatchTestSetup(SQLBatchTestSetup[RedshiftDatasourceTestConfig]):
     @property
     @override
     def connection_string(self) -> RedshiftDsn:
-        return self.redshift_connection_config.connection_string
+        return self.redshift_connection_config.connection_string(schema=self.schema)
 
     @property
     @override
