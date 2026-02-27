@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from typing import TYPE_CHECKING, Mapping, Optional
+from urllib.parse import urlencode
 
 import pytest
 
@@ -31,7 +32,7 @@ class RedshiftConnectionConfig(BaseSettings):
     REDSHIFT_SSLMODE: str
 
     def connection_string(self, schema: str | None = None) -> RedshiftDsn:
-        options = f"&options=-c search_path%3D{schema}" if schema else ""
+        options = f"&{urlencode({'options': f'-c search_path={schema}'})}" if schema else ""
         return RedshiftDsn(
             f"redshift+psycopg2://{self.REDSHIFT_USERNAME}:{self.REDSHIFT_PASSWORD}@"
             f"{self.REDSHIFT_HOST}:{self.REDSHIFT_PORT}/{self.REDSHIFT_DATABASE}?"

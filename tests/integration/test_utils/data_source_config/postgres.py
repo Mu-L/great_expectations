@@ -1,4 +1,5 @@
 from typing import Mapping, Optional
+from urllib.parse import urlencode
 
 import pandas as pd
 import pytest
@@ -48,7 +49,9 @@ class PostgresBatchTestSetup(SQLBatchTestSetup[PostgreSQLDatasourceTestConfig]):
     @property
     @override
     def connection_string(self) -> str:
-        options = f"?options=-c search_path%3D{self.schema}" if self.schema else ""
+        options = (
+            f"?{urlencode({'options': f'-c search_path={self.schema}'})}" if self.schema else ""
+        )
         return f"postgresql+psycopg2://postgres@localhost:5432/test_ci{options}"
 
     @property
