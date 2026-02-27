@@ -57,7 +57,7 @@ class MySQLBatchTestSetup(SQLBatchTestSetup[MySQLDatasourceTestConfig]):
     @property
     @override
     def use_schema(self) -> bool:
-        return False
+        return True
 
     @property
     @override

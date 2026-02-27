@@ -74,7 +74,7 @@ class RedshiftBatchTestSetup(SQLBatchTestSetup[RedshiftDatasourceTestConfig]):
     @property
     @override
     def use_schema(self) -> bool:
-        return False
+        return True
 
     def __init__(
         self,
