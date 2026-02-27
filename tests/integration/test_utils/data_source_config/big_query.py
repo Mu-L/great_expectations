@@ -55,7 +55,7 @@ class BigQueryBatchTestSetup(SQLBatchTestSetup[BigQueryDatasourceTestConfig]):
     @property
     @override
     def connection_string(self) -> str:
-        return self.big_query_connection_config.connection_string
+        return self.big_query_connection_config.connection_string(dataset=self.schema)
 
     @property
     @override
@@ -88,6 +88,6 @@ class BigQueryConnectionConfig(BaseSettings):
     GE_TEST_BIGQUERY_DATASET: str
     GOOGLE_APPLICATION_CREDENTIALS: str
 
-    @property
-    def connection_string(self) -> str:
-        return f"bigquery://{self.GE_TEST_GCP_PROJECT}/{self.GE_TEST_BIGQUERY_DATASET}?credentials_path={self.GOOGLE_APPLICATION_CREDENTIALS}"
+    def connection_string(self, dataset: str | None = None) -> str:
+        dataset = dataset or self.GE_TEST_BIGQUERY_DATASET
+        return f"bigquery://{self.GE_TEST_GCP_PROJECT}/{dataset}?credentials_path={self.GOOGLE_APPLICATION_CREDENTIALS}"
