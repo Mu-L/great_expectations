@@ -457,6 +457,7 @@ class SnowflakeDatasource(SQLDatasource):
         return None
 
     @property
+    @override
     def schema_(self) -> str | None:
         """
         Convenience property to get the `schema` regardless of the connection string format.

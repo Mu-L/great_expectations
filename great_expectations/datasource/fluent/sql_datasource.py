@@ -95,7 +95,7 @@ if TYPE_CHECKING:
 
 LOGGER: Final[logging.Logger] = logging.getLogger(__name__)
 
-MISSING: Final = object()  # sentinel value to distinguish "not provided" from None
+_MISSING: Final = object()  # sentinel value to distinguish "not provided" from None
 
 DEFAULT_INITIAL_QUOTE_CHARACTERS: Final[Tuple[str, str, str, str]] = ('"', "'", "`", "[")
 DEFAULT_FINAL_QUOTE_CHARACTERS: Final[Mapping[str, str]] = {
@@ -1327,7 +1327,7 @@ class SQLDatasource(Datasource):
                 asset.test_connection()
 
     @deprecated_method_or_class(
-        version="1.0.0a4",
+        version="1.14.0",
         message="`schema_name` is deprecated. The schema now comes from the datasource.",
     )
     @public_api
@@ -1335,7 +1335,7 @@ class SQLDatasource(Datasource):
         self,
         name: str,
         table_name: str = "",
-        schema_name: Optional[str] = MISSING,  # type: ignore[assignment] # sentinel value
+        schema_name: Optional[str] = _MISSING,  # type: ignore[assignment] # sentinel value
         batch_metadata: Optional[BatchMetadata] = None,
     ) -> TableAsset:
         """Adds a table asset to this datasource.
@@ -1353,7 +1353,7 @@ class SQLDatasource(Datasource):
             The type of this object will match the necessary type for this datasource.
             eg, it could be a TableAsset or a SqliteTableAsset.
         """
-        if schema_name is MISSING:
+        if schema_name is _MISSING:
             schema_name = self.schema_
         else:
             warnings.warn(
