@@ -68,7 +68,7 @@ class SQLServerBatchTestSetup(SQLBatchTestSetup[SQLServerDatasourceTestConfig]):
             host="127.0.0.1",
             port=1433,
             database="test_ci",
-            schema="dbo",
+            schema=self.schema or "dbo",
             username="sa",
             password="ReallyStrongPwd1234%^&*",
             driver="ODBC Driver 18 for SQL Server",
@@ -80,7 +80,6 @@ class SQLServerBatchTestSetup(SQLBatchTestSetup[SQLServerDatasourceTestConfig]):
         ).add_table_asset(
             name=self._random_resource_name(),
             table_name=self.table_name,
-            schema_name=self.schema,
         )
 
     @override
