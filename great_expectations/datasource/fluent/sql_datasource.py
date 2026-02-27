@@ -1242,12 +1242,12 @@ class SQLDatasource(Datasource):
 
     @property
     def schema_(self) -> str | None:
-        """The schema for this datasource, if the datasource supports setting
-        schema outside of the raw connection string.
+        """The schema for this datasource, if available.
 
-        Subclasses (e.g. SnowflakeDatasource, SQLServerDatasource) override
-        this to expose the schema from structured connection details.  The base
-        implementation returns ``None``.
+        There is no standard way to encode schema in a database connection URL,
+        so the base implementation returns ``None``.  Subclasses with structured
+        connection details (e.g. SnowflakeDatasource, SQLServerDatasource)
+        override this to expose the schema.
         """
         return None
 
@@ -1329,7 +1329,8 @@ class SQLDatasource(Datasource):
 
     @deprecated_method_or_class(
         version="1.14.0",
-        message="`schema_name` is deprecated. The schema now comes from the datasource.",
+        message="`schema_name` is deprecated."
+        " Pass the schema in your datasource's connection configuration instead.",
     )
     @public_api
     def add_table_asset(
@@ -1359,8 +1360,8 @@ class SQLDatasource(Datasource):
         else:
             # deprecated-v1.14.0
             warnings.warn(
-                "The `schema_name argument` is deprecated and will be removed in a future release."
-                " The schema now comes from the datasource.",
+                "The `schema_name` argument is deprecated and will be removed in a future release."
+                " Pass the schema in your datasource's connection configuration instead.",
                 category=DeprecationWarning,
             )
             if self.schema_ is not None and schema_name != self.schema_:
