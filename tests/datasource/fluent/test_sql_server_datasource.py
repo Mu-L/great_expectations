@@ -250,6 +250,22 @@ class TestSQLServerDatasource:
         engine2 = ds.get_engine()
         assert engine1 is engine2
 
+    @pytest.mark.usefixtures("create_engine_fake")
+    def test_add_table_asset_inherits_schema_from_datasource(
+        self,
+        connection_details_default: ConnectionDetailsDict,
+        monkeypatch: pytest.MonkeyPatch,
+    ) -> None:
+        from great_expectations.datasource.fluent.sql_datasource import TableAsset
+
+        monkeypatch.setattr(TableAsset, "test_connection", lambda self: None)
+        ds = SQLServerDatasource(
+            name="test_ds",
+            connection_string=SQLServerAuthConnectionDetails(**connection_details_default),
+        )
+        asset = ds.add_table_asset(name="my_asset", table_name="my_table")
+        assert asset.schema_name == ds.schema_
+
 
 @pytest.mark.unit
 class TestEntraIDServicePrincipalAuthConnectionDetails:
