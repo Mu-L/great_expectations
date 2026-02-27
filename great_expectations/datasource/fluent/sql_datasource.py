@@ -1242,11 +1242,12 @@ class SQLDatasource(Datasource):
 
     @property
     def schema_(self) -> str | None:
-        """The default schema for this datasource, if any.
+        """The schema for this datasource, if the datasource supports setting
+        schema outside of the raw connection string.
 
-        Subclasses (e.g. SnowflakeDatasource) override this to extract the
-        schema from the connection string.  The base implementation returns
-        ``None`` so that ``add_table_asset`` can fall back gracefully.
+        Subclasses (e.g. SnowflakeDatasource, SQLServerDatasource) override
+        this to expose the schema from structured connection details.  The base
+        implementation returns ``None``.
         """
         return None
 
