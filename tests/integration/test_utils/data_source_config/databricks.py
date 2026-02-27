@@ -88,7 +88,6 @@ class DatabricksBatchTestSetup(SQLBatchTestSetup[DatabricksDatasourceTestConfig]
         ).add_table_asset(
             name=self._random_resource_name(),
             table_name=self.table_name,
-            schema_name=self.schema,
         )
 
 
